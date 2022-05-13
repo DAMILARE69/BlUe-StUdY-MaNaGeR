@@ -9,6 +9,7 @@ export const Homepage = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 
   & p {
     color: ${(props) => props.theme.colorTwo};
