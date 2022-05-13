@@ -1,13 +1,12 @@
 //@ts-check
 // @ts-ignore
 import styled from "styled-components";
-// import { motion } from "framer-motion";
 
 export const BButtonComponent = styled.button`
   color: ${({ color }) => color};
   width: ${(/** @type {{ width: String; }} */ props) => props.width};
   display: flex;
-  font-size: ${(props) => props.Icon.size - 3 + "px"};
+  font-size: 1rem;
   height: ${(/** @type {{ height: String; }} */ props) => props.height};
   gap: ${({ Icon }) => (Icon ? "5px" : "0px")};
   justify-content: center;

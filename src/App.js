@@ -1,14 +1,16 @@
 //@ts-check
-import { User } from "phosphor-react";
 import { useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./GlobalStyles";
 import { useTheme } from "./Hooks/useTheme/useTheme";
 import { AppComponent } from "./AppStyles";
-import { BButton } from "./Components/BButton/BButton";
+import { useAuth } from "./Hooks/useAuth/useAuth";
+import { AppRoutes } from "./AppRoutes/AppRoutes";
+import { BrowserRouter } from "react-router-dom";
 
 export default function App() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
+  const { authIsReady } = useAuth();
   const disableContext = (/** @type {{ preventDefault: () => void; }} */ e) => {
     e.preventDefault();
   };
@@ -23,31 +25,16 @@ export default function App() {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <AppComponent onContextMenu={disableContext}>
-        {true ? (
-          <>
-            <h1>Hello CodeSandbox</h1>
-            <h2>Start editing to see some magic happen!</h2>
-            <BButton
-              edge="50%"
-              height="40px"
-              width="40px"
-              curved={false}
-              content={null}
-              isDisabled={undefined}
-              background={theme.brandColor}
-              color={theme.light}
-              event={() => toggleTheme()}
-              outlined={false}
-              Icon={{ name: User, color: theme.color, size: 20 }}
-            />
-          </>
-        ) : (
-          <p>Loading....</p>
-        )}
-      </AppComponent>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <AppComponent
+          onContextMenu={disableContext}
+          className={authIsReady && "preloader"}
+        >
+          {authIsReady ? <AppRoutes /> : <p>Loading....</p>}
+        </AppComponent>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
