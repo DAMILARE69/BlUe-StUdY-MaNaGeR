@@ -1,6 +1,6 @@
 //@ts-check
 import { MoonStars, Sun } from "phosphor-react";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion/dist/framer-motion";
 import { useTheme } from "../../Hooks/useTheme/useTheme";
 export function BMoonAndSunToggle({ type, size, color }) {
   const { toggleTheme, isDarkMode } = useTheme();
