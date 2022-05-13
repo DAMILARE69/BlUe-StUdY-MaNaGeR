@@ -1,5 +1,5 @@
 //@ts-check
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion/dist/framer-motion";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { HomePage } from "../Pages/Homepage/HomePage";
 import { NouserRoutes } from "./NouserRoutes";
