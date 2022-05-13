@@ -9,7 +9,7 @@ export function BMoonAndSunToggle({ type, size, color }) {
       {isDarkMode && (
         <motion.span
           exit={{ y: -100, opacity: 0, transition: { ease: "easeInOut" } }}
-          initial={{ y: 10, opacity: 0 }}
+          initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
@@ -23,7 +23,7 @@ export function BMoonAndSunToggle({ type, size, color }) {
       )}
       {!isDarkMode && (
         <motion.span
-          initial={{ y: 10, opacity: 0 }}
+          initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
           exit={{ y: -100, opacity: 0, transition: { ease: "easeInOut" } }}
