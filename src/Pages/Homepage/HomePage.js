@@ -26,7 +26,7 @@ export function HomePage() {
           outlined={false}
           Icon={{
             name: isDarkMode ? MoonStars : Sun,
-            color: theme.color,
+            color: theme.light,
             size: 30
           }}
         />
