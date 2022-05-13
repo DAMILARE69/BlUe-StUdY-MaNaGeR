@@ -1,7 +1,7 @@
 //@ts-check
 // @ts-ignore
 import styled from "styled-components";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 export const BButtonComponent = styled.button`
   color: ${({ color }) => color};
