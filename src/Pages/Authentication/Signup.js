@@ -1,5 +1,5 @@
 //@ts-check
-import { UserCircle } from "phosphor-react";
+import { UserCircle, Envelope, LockKey } from "phosphor-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../Hooks/useTheme/useTheme";
@@ -63,7 +63,7 @@ export default function Signup() {
               placeholder="email"
               inputType="text"
               Icon={{
-                name: UserCircle,
+                name: Envelope,
                 size: 32,
                 color: theme.brandColor,
                 type: "fill"
@@ -75,9 +75,9 @@ export default function Signup() {
             />
             <BTextField
               placeholder="password"
-              inputType="text"
+              inputType="password"
               Icon={{
-                name: UserCircle,
+                name: LockKey,
                 size: 32,
                 color: theme.brandColor,
                 type: "fill"
@@ -91,7 +91,7 @@ export default function Signup() {
               placeholder="confirm password"
               inputType="password"
               Icon={{
-                name: UserCircle,
+                name: LockKey,
                 size: 32,
                 color: theme.brandColor,
                 type: "fill"
