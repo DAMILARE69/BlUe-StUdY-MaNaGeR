@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./GlobalStyles";
 import { useTheme } from "./Hooks/useTheme/useTheme";
 import { AppComponent } from "./AppStyles";
-// import { BButton } from "./Components/BButton/BButton";
+import { BButton } from "./Components/BButton/BButton";
 
 export default function App() {
   const { theme, toggleTheme } = useTheme();
@@ -30,7 +30,7 @@ export default function App() {
           <>
             <h1>Hello CodeSandbox</h1>
             <h2>Start editing to see some magic happen!</h2>
-            {/* <BButton
+            <BButton
               edge="50%"
               height="40px"
               width="40px"
@@ -42,7 +42,7 @@ export default function App() {
               event={() => toggleTheme()}
               outlined={false}
               Icon={{ name: User, color: theme.color, size: 20 }}
-            /> */}
+            />
           </>
         ) : (
           <p>Loading....</p>
