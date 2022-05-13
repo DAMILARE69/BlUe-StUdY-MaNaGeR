@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./GlobalStyles";
 import { useTheme } from "./Hooks/useTheme/useTheme";
 import { AppComponent } from "./AppStyles";
-import { BButton } from "./Components/BButton/BButton";
+// import { BButton } from "./Components/BButton/BButton";
 
 export default function App() {
   const { theme, toggleTheme } = useTheme();
