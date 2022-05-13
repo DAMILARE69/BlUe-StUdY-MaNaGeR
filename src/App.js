@@ -30,7 +30,7 @@ export default function App() {
         <GlobalStyles />
         <AppComponent
           onContextMenu={disableContext}
-          className={authIsReady && "preloader"}
+          className={!authIsReady && "preloader"}
         >
           {authIsReady ? <AppRoutes /> : <p>Loading....</p>}
         </AppComponent>
