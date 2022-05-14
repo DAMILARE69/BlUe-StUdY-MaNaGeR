@@ -21,7 +21,8 @@ export const AuthContext = createContext({
   signout: null,
   continueWithGoogle: null,
   forgotPassword: null,
-  message: null
+  message: null,
+  setMessage: null
 });
 
 export function AuthContextProvider({ children }) {
@@ -45,7 +46,13 @@ export function AuthContextProvider({ children }) {
     /**@type {string} */ email,
     /**@type {any} */ password
   ) => {
-    await signInWithEmailAndPassword(auth, email, password);
+    if (email && password) {
+      await signInWithEmailAndPassword(auth, email, password).catch((error) =>
+        setMessage(error.message)
+      );
+    } else {
+      setMessage("Please fill the required fields to login");
+    }
   };
   const continueWithGoogle = async () => {
     await signInWithPopup(auth, new GoogleAuthProvider()).catch((error) => {
@@ -77,7 +84,8 @@ export function AuthContextProvider({ children }) {
         login,
         signout,
         forgotPassword,
-        message
+        message,
+        setMessage
       }}
     >
       {children}

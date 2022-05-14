@@ -18,10 +18,10 @@ import {
   ImageSection
 } from "./AuthenticationStyles";
 import { BMinimalHeader } from "../../Components/BNavigation/BMinimalHeader";
-export default function Signup() {
+export default function Login() {
   const goTo = useNavigate();
   const { theme } = useTheme();
-  const { signup, message, setMessage } = useAuth();
+  const { login, message, setMessage } = useAuth();
   const [formData, setFormData] = useState({
     userName: null,
     email: null,
@@ -32,7 +32,7 @@ export default function Signup() {
   const startSignup = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await signup(formData.email, formData.password, formData.userName);
+    await login(formData.email, formData.password);
     setIsSubmitting(false);
   };
   useEffect(() => {
@@ -45,31 +45,15 @@ export default function Signup() {
         <FieldSection>
           <AuthenticationTextContainer>
             {message && message}
-            <AuthenticationHeading>Join Us Now</AuthenticationHeading>
+            <AuthenticationHeading>Welcome Back</AuthenticationHeading>
             <AuthenticationParagraph>
-              Start by creating your account
+              Login to your account
             </AuthenticationParagraph>
-            <AlreadyHaveAnAccount onClick={() => goTo("/login")}>
-              I already have an account
+            <AlreadyHaveAnAccount onClick={() => goTo("/sign-up")}>
+              I don't have an account
             </AlreadyHaveAnAccount>
           </AuthenticationTextContainer>
           <AuthenticationForm onSubmit={startSignup}>
-            <BTextField
-              placeholder="username"
-              inputType="text"
-              Icon={{
-                name: UserCircle,
-                size: 32,
-                color: theme.brandColor,
-                type: "fill"
-              }}
-              event={({ target }) =>
-                setFormData({ ...formData, userName: target.value })
-              }
-              color={theme.color}
-              focusColor={theme.brandColor}
-              hasActiveState={undefined}
-            />
             <BTextField
               placeholder="email"
               inputType="text"
@@ -102,22 +86,7 @@ export default function Signup() {
               focusColor={theme.brandColor}
               hasActiveState={undefined}
             />
-            <BTextField
-              placeholder="confirm password"
-              inputType="password"
-              Icon={{
-                name: LockKey,
-                size: 32,
-                color: theme.brandColor,
-                type: "fill"
-              }}
-              event={({ target }) =>
-                setFormData({ ...formData, userName: target.value })
-              }
-              color={theme.color}
-              focusColor={theme.brandColor}
-              hasActiveState={undefined}
-            />
+
             <BButton
               isDisabled={isSubmitting}
               type={`submit`}
@@ -126,7 +95,7 @@ export default function Signup() {
               background={theme.brandColor}
               height="40px"
               edge="5px"
-              content={`Sign up`}
+              content={`Login`}
             />
           </AuthenticationForm>
         </FieldSection>
