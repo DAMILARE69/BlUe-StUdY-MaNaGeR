@@ -30,8 +30,8 @@ export function AuthContextProvider({ children }) {
   const [message, setMessage] = useState(null);
   const signup = async (
     /**@type {string} */ email,
-    /**@type {any} */ userName,
-    /** @type {any} */ password
+    /** @type {any} */ password,
+    /**@type {any} */ userName
   ) => {
     if (email && password && userName) {
       await createUserWithEmailAndPassword(auth, email, password)

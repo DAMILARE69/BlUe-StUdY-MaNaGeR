@@ -14,10 +14,12 @@ export function BButton({
   outlined,
   Icon,
   edge,
-  isDisabled
+  isDisabled,
+  type
 }) {
   return (
     <BButtonComponent
+      type={type}
       edge={edge}
       Icon={Icon}
       width={width}
